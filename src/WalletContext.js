@@ -10,7 +10,8 @@ import {
   PhantomWalletAdapter
 } from "@solana/wallet-adapter-wallets";
 
-import "@solana/wallet-adapter-react-ui/styles.css";
+// TEMPORARILY REMOVE problematic stylesheet import
+// import "@solana/wallet-adapter-react-ui/styles.css";
 
 const network = "https://api.mainnet-beta.solana.com";
 
@@ -19,7 +20,9 @@ export const WalletConnectionProvider = ({ children }) => {
   return (
     <ConnectionProvider endpoint={network}>
       <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>{children}</WalletModalProvider>
+        <WalletModalProvider>
+          {children}
+        </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
