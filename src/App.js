@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RunnerGame from "./RunnerGame";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const dailyTasks = [
   { id: 1, task: "Drink a full glass of water", completed: false },
@@ -25,7 +26,7 @@ export default function App() {
   useEffect(() => {
     if (tasks.every((task) => task.completed) && !allDone) {
       setAllDone(true);
-      setTotalEarned((prev) => prev + 3); // 1 coin per task
+      setTotalEarned((prev) => prev + 3); // 1 RCVRY per task
     }
   }, [tasks, allDone]);
 
@@ -41,6 +42,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-blue-300 flex flex-col items-center justify-center p-6">
+      <div className="flex justify-end w-full max-w-md mb-4">
+        <WalletMultiButton />
+      </div>
+
       <h1 className="text-3xl font-bold mb-4">🌱 RCVRY Quest</h1>
 
       {!allDone && (
