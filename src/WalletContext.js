@@ -11,7 +11,7 @@ import {
 } from "@solana/wallet-adapter-wallets";
 
 // TEMPORARILY REMOVE problematic stylesheet import
-// import "@solana/wallet-adapter-react-ui/styles.css";
+
 
 const network = "https://api.mainnet-beta.solana.com";
 
